@@ -1,0 +1,14 @@
+.card {
+    background: var(--background-4);
+    box-shadow: 1px 1px 10px var(--background-4);
+    width: 80%;
+    max-width: 450px;
+    margin: auto;
+    color: var(--background-1);
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.card.bg-white {
+    background: white;
+}
