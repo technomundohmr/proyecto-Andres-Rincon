@@ -1,15 +1,18 @@
 import {UserContext} from '../context/UserContext';
-import { useState } from 'react';
-import useRequest from '../hooks/useRequest';
+import { useEffect, useState } from 'react';
+import { useRequest } from '../hooks/useRequest.js';
 
 export const UserProvider = ({children}) => {
 
-    const IsThereAdminData = useRequest( 'admin-check' );
+    const [IsThereAdmin, setIsThereAdmin] = useState();
+    const { ResponseData }= useRequest( 'admin-check' , 'get');
 
-    const [IsThereAdmin, setIsThereAdmin] = useState(0);
-
+    useEffect(() => {
+        setIsThereAdmin(ResponseData)
+    }, [ResponseData])
+    
     return (
-        <UserContext.Provider value={{ IsThereAdmin }}>
+        <UserContext.Provider value={ IsThereAdmin }>
             {children}
         </UserContext.Provider>
     )

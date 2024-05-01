@@ -1,0 +1,33 @@
+.alert {
+    position: fixed;
+    top: 10%;
+    right: 25px;
+    padding: 20px;
+    display: flex;
+    min-width: 350px;
+    justify-content: space-between;
+    gap: 10px;
+    border-radius: 5px;
+    box-shadow:1px 0 20px 0 black;
+    color: white;
+}
+
+.alert.error{
+    background: rgba(216, 10, 10);
+    font-weight: 600;
+}
+
+.alert.info{
+    background: rgba(10, 10, 216);
+    font-weight: 600;
+}
+
+.alert.success{
+    background: rgb(15, 95, 31);
+    font-weight: 600;
+}
+
+.alert .close-btn{
+    font-weight: bold;
+    cursor: pointer;
+}

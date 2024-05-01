@@ -1,5 +1,4 @@
 import "./form-item.css";
-import {useForm} from 'react-hook-form'
 
 const FormItem = ({
   label,
@@ -10,26 +9,31 @@ const FormItem = ({
   name = '',
   errors,
   id,
+  register,
+  validations={},
+  value
 }) => {
-  
-  const {register} = useForm(); 
-
-
-  const valueHandler = ({target}) => {
-    setValue({...formState, [target.name]:{...formState[target.name] , value: target.value}})
-  }
 
   return <div className={`form-item ${classes}`}>
     {label && <label htmlFor={name}>{label}</label>}
-    <input 
+    { type === 'submit' ? <input 
       type={type} 
       placeholder={placeholder} 
       name={name} 
       id={id} 
-      className={errors ? 'error' : ''}
-      {...register(name)}
-    />
-    
+      value={value}
+    /> :<>
+      <input 
+        type={type} 
+        placeholder={placeholder} 
+        name={name} 
+        id={id} 
+        {...register(name, validations)}
+        className={errors[name] ? 'error' : ''}
+      /> 
+      {errors[name] &&  <span>{errors[name].message}</span> }
+    </> }
+
     {description && <p>{description}</p> }
   </div>;
 };

@@ -2,7 +2,11 @@
 
 namespace App\Http\Requests;
 
+use App\Models\User;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Http\JsonResponse;
 
 class UserRequest extends FormRequest
 {
@@ -11,8 +15,14 @@ class UserRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        $user = User::where('role', 'admin')->first();
+        if(!empty($user)) {
+            return false;
+        }
+        return true;
     }
+
+
 
     /**
      * Get the validation rules that apply to the request.
@@ -22,7 +32,18 @@ class UserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255|Unique:users',
+            'password' => 'required|min:8',
+            'passwordConfirm' => 'required|min:8'
         ];
     }
+
+    protected function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(
+            response()->json($validator->errors(), JsonResponse::HTTP_UNPROCESSABLE_ENTITY)
+        );
+    }
+
 }

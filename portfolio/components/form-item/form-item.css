@@ -2,7 +2,24 @@
     margin: 20px auto;
     width: 100%;
     display: flex;
+    flex-direction: column;
+}
 
+.form-item span{
+    font-size: .6rem;
+    margin: 2px 20px;
+    font-weight: 800;
+    color:tomato;
+    font-style: italic;
+}
+
+.form-item input.error{ 
+    border-bottom: 2px solid tomato;
+    color: tomato;
+}
+
+.form-item input.error::placeholder{ 
+    color: tomato;
 }
 
 .form-item input{
@@ -28,4 +45,5 @@
 
 .form-item input::placeholder{
     font-style: italic;
+    font-weight: 300;
 }
