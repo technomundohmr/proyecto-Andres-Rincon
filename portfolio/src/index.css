@@ -54,6 +54,22 @@ h5 {
   cursor: pointer;
 }
 
+html{
+  scroll-behavior: smooth;
+  scrollbar-width: thin; 
+  scrollbar-color: transparent transparent;
+  
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-ms-scrollbar-arrow-up,
+::-ms-scrollbar-arrow-down {
+  display: none;
+}
+
 @media (min-width:450px) {
   .container {
     padding:30px;

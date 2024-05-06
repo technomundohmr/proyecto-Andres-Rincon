@@ -4,3 +4,7 @@
     width: fit-content;
     padding-right: 50px;
 }
+
+.header-h2.block{
+    font-size: 1.4rem;
+}

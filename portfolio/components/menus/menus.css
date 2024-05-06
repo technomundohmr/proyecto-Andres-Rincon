@@ -1,0 +1,49 @@
+.menus {
+
+}
+
+.admin-menu{
+    background: rgba(182, 179, 176, 0.5);
+    position: fixed;
+    top: calc(50% - 35px);
+    left: 0;
+    padding: 5px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.admin-menu li.tomato{
+    background: rgba(255, 99, 71, 0.5);
+}
+
+.admin-menu li.green{
+    background: rgba(47, 255, 47, 0.5);
+}
+
+.admin-menu li.skyblue{
+    background: rgb(17, 153, 207, 0.5);
+}
+
+.admin-menu li:hover.tomato{
+    background: rgba(255, 99, 71);
+}
+
+.admin-menu li:hover.green{
+    background: rgba(47, 255, 47);
+}
+
+.admin-menu li:hover.skyblue{
+    background: rgb(17, 153, 207);
+}
+
+.admin-menu li{
+    margin: 3px 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 5px;
+    list-style: none;
+}
+
+.admin-menu img{
+    width: 25px;
+}

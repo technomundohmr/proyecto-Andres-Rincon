@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Menu;
+use App\Models\Proyect;
 use Illuminate\Http\Request;
 
 class MenuController extends Controller
@@ -10,9 +11,9 @@ class MenuController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($menu_id, $project)
     {
-        //
+        $project = Proyect::where('name', $project);
     }
 
     /**

@@ -1,0 +1,23 @@
+.new-block-buton:hover {
+    cursor: pointer;
+    background: rgba(182, 179, 176, 0.5) ;
+}
+
+.new-block-buton {
+    width: 90%;
+    padding: 20px;
+    border: 2px #b6b3b0 dashed;
+    margin: 10px auto;
+    color: #b6b3b0;
+}
+
+.new-block-buton .new-block-buton-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.new-block-buton img{
+    width: 35px;
+}

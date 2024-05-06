@@ -1,0 +1,27 @@
+.item-action-entity {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--background-3);
+}
+
+.item-action-entity .body{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.item-action-entity a:hover, .item-action-entity .body:hover {
+    cursor: pointer;
+    background: rgba(182, 179, 176, 0.5) ;
+}   
+
+.item-action-entity a {
+    border-left: 1px solid var(--background-3);
+}
+
+.item-action-entity img {
+    width: 25px;
+}

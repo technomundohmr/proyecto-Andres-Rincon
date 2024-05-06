@@ -1,6 +1,6 @@
 import "./alert.css";
 
-const Alert = ({status='', header, message, setAlertData}) => {
+const Alert = ({status='error', header, message, setAlertData}) => {
   
   const closeAlert = () => setAlertData(null);
   

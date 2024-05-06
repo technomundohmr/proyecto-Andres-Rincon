@@ -5,9 +5,19 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    /**
+     * index
+     */
+    public function index() 
+    {
+        $user = User::where('role', 'admin')->first();
+        $res = $user;
+        return response()->json($res);
+    }
     /**
      * check admin  user
      */
@@ -24,9 +34,10 @@ class UserController extends Controller
     /**
      * create admin
      */
-    public function admin_create(UserRequest $request) {
+    public function admin_create(UserRequest $request) 
+    {
         $res = [
-            'status' => 'failed',
+            'status' => 'error',
             'message' => 'ocurrio un error inesperado',
         ];
         $user = $request->all();
@@ -45,5 +56,23 @@ class UserController extends Controller
         return response()->json($res);
     }   
      
+    public function login(Request $request) 
+    {
+        $res = [
+            'status' => 'error',
+            'message' => 'Los datos ingresados no concuerdan',
+        ];
+        $login_data = $request->only('email', 'password');
+        if(Auth::attempt($login_data)){
+            $user = Auth::user();
+            $user_token = $user->createToken('superadminToken')->plainTextToken;
+            $res = [
+                'status' => 'success',
+                'message' => 'Bienvenido',
+                'token' => $user_token,
+            ];
+        }
+        return response()->json($res);
+    }
     
 }

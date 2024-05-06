@@ -1,10 +1,33 @@
+import { useEffect, useState } from "react";
 import Card from "../../components/card/Card";
 import Navbar from "../../components/navbar/Navbar";
 import "./home.css";
+import { useRequest } from "../../hooks/useRequest";
+import NewBlockButon from "../../components/new-block-buton/NewBlockButon";
+import AdminMenu from "../../components/menus/AdminMenu";
 
 const Home = () => {
+
+  const [UserToken, setUserToken] = useState()
+  const {ResponseData, setSendRequest} = useRequest(UserToken)
+
+  useEffect(() => {
+    if(localStorage.getItem('token')) {
+      setSendRequest(true)
+      setUserToken('user', 'get', {} , {Authorization: `Bearer ${localStorage.getItem('token')}
+      `})
+    }
+  }, [])
+
   return <>
     <Navbar />
+    {(ResponseData.role === 'admin') &&  <>
+        <NewBlockButon /> 
+        <AdminMenu />
+      </> 
+    }
+    
+
   </>;
 };
 
