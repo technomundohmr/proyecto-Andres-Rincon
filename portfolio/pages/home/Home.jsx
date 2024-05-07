@@ -5,6 +5,7 @@ import "./home.css";
 import { useRequest } from "../../hooks/useRequest";
 import NewBlockButon from "../../components/new-block-buton/NewBlockButon";
 import AdminMenu from "../../components/menus/AdminMenu";
+import FooterMenu from "../../components/footer-menu/FooterMenu";
 
 const Home = () => {
 
@@ -21,6 +22,7 @@ const Home = () => {
 
   return <>
     <Navbar />
+    <FooterMenu />
     {(ResponseData.role === 'admin') &&  <>
         <NewBlockButon /> 
         <AdminMenu />

@@ -153,7 +153,7 @@ export const MenuItemFormData = [
         validations: {
             required: {
                 value: true,
-                message: 'El nombre es requerido'
+                message: 'La ruta es requerido'
             },
         }
     },
@@ -161,7 +161,18 @@ export const MenuItemFormData = [
         name: 'weight',
         placeholder: 'Peso',
         id: 'menu-form-weight',
-        type: 'number'
+        type: 'number',
+        validations: {
+            required: {
+                value: true,
+                message: 'El peso es requerido'
+            },
+        }
+    },
+    {
+        name: 'target',
+        placeholder: 'target',
+        id: 'menu-form-target',
     },
     {
         name: 'icon',
@@ -203,6 +214,45 @@ export const TechnologyFormData = [
         name: 'logo',
         placeholder: 'Logo o imagen',
         id: 'technology-form-logo',
+        type: 'file',
+        accept: 'image/*'
+    },
+]
+
+export const HeroMainFormData = [
+    {
+        name: 'name',
+        placeholder: 'Nombre',
+        id: 'hero-main-form-name',
+        validations: {
+            required: {
+                value: true,
+                message: 'El nombre es requerido'
+            },
+        }
+    },
+    {
+        name: 'main_image',
+        placeholder: 'Imagen Principal',
+        id: 'hero-main-form-path',
+        type: 'file',
+        accept: 'image/*'
+    },
+    {
+        name: 'subtitle',
+        placeholder: 'Subtitulo',
+        id: 'hero-main-form-subtitle',
+    },
+    {
+        name: 'body',
+        placeholder: 'Cuerpo',
+        id: 'hero-main-form-body',
+        type: 'textarea'
+    },
+    {
+        name: 'secondary_image',
+        placeholder: 'Imagen Principal',
+        id: 'hero-main-form-path',
         type: 'file',
         accept: 'image/*'
     },

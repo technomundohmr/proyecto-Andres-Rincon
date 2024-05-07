@@ -13,4 +13,16 @@ class Menu extends Model
     {
         return $this->hasMany(MenuItems::class);
     }
+
+
+        /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
+        'region',
+        'proyect_id',
+    ];
 }

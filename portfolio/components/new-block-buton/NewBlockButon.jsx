@@ -24,7 +24,7 @@ const NewBlockButon = () => {
     </div>
     {ModalActive && <Modal setModalActive={setModalActive} >
       <HeaderH2 header={'Creación de bloque'} classes="block"/>
-      <OptionForm name="block-type"  options={blockTypes} classes={Theme} setValue={setBlockType}/>
+      <OptionForm name="block-type"  options={blockTypes}  setValue={setBlockType}/>
     </Modal> }
   </>
 };

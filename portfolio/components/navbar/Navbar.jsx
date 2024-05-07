@@ -1,9 +1,10 @@
 import "./navbar.css";
 import navIcon from "/img/hamburger-menu.svg";
 
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import CrossWhite from '/img/cross-white.svg'
 import NavbarUtils from "../navbar-utils/NavbarUtils";
+import { useRequest } from "../../hooks/useRequest";
 
 const Navbar = () => {
 
@@ -13,6 +14,12 @@ const Navbar = () => {
     setActiveNavbar(status);
   }
 
+  const {ResponseData, setSendRequest} = useRequest('menu-items/main/portfolio', 'get');
+
+  useEffect(() => {
+    setSendRequest(true);
+  }, [])
+  
   return <>  
     <nav className="navbar">
       <div className="navicon hover-click" onClick={() => ActiveNavbarHandler(true)}>
@@ -25,11 +32,13 @@ const Navbar = () => {
         <img src={CrossWhite} />
       </span>
       <ul>
-        <a href="#"><li><h2>Home</h2></li></a>
-        <a href="#"><li><h2>Home</h2></li></a>
-        <a href="#"><li><h2>Home</h2></li></a>
-        <a href="#"><li><h2>Home</h2></li></a>
-        <a href="#"><li><h2>Home</h2></li></a>
+        {ResponseData && Object.entries(ResponseData).map(data => { 
+            let {id, name, path} = data[1]
+            return <a key={id} href={path}>
+              <li><h2>{name}</h2></li>
+            </a>
+        }
+        ) }
       </ul>
     </nav>
     }
